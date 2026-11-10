@@ -1,23 +1,49 @@
-# macOS
+# ---- OS ----
 .DS_Store
+.AppleDouble
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+*~
 
-# Arduino build output
+# ---- Editors / IDEs ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- Arduino build output ----
 build/
 *.hex
 *.elf
 *.bin
 *.eep
 *.map
+*.lst
+.arduino/
+arduino-cli.yaml
 
-# Secrets (WiFi creds, API keys)
+# ---- Secrets and local config (never commit WiFi passwords or keys) ----
 .env
+.env.*
+!.env.example
 secrets.h
 *.secret
+*.pem
+*.key
 
-# Editors / IDE
-.vscode/
-.idea/
-*.swp
+# ---- Node / Python (if tooling is added later) ----
+node_modules/
+__pycache__/
+*.pyc
+.venv/
 
-# Claude Code local
+# ---- Logs and exported data ----
+*.log
+slopeguard-*.csv
+slopeguard-*.json
+slopeguard-log-*.txt
+
+# ---- Claude Code local state ----
 .claude/
