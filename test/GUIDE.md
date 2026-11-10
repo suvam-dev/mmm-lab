@@ -68,7 +68,7 @@ Expected: `Found device at 0x68`, then raw X/Y/Z every 0.3 s. One axis shows abo
 | Found device but all zeros | Chip asleep or bad connection; power-cycle |
 
 ## Test 05: LEDs (`test/05_leds/05_leds.ino`)
-Wiring: red LED on D8, green LED on D9. Long leg (+) through a 220-330 ohm resistor to the pin, short leg (-) to GND.
+Wiring: red LED on D9, green LED on D10. Long leg (+) through a 220-330 ohm resistor to the pin, short leg (-) to GND.
 
 Expected: red 1.5 s, green 1.5 s, both 1.5 s, off, then they alternate forever.
 

@@ -14,7 +14,7 @@ Background: all worked, then an ESP32 WiFi attempt was added; afterwards only th
 | Buzzer + | D7 |
 | Buzzer - | GND |
 | Ultrasonic TRIG / ECHO | D4 / D5 (verified working) |
-| Red / Green LED | D8 / D9 |
+| Red / Green LED | D9 / D10 |
 | Soil moisture AOUT | A1 (verified working) |
 | MPU6050 SDA / SCL | A4 / A5, I2C 0x68 (verified working) |
 
