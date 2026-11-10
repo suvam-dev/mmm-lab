@@ -67,4 +67,13 @@ Expected: `Found device at 0x68`, then raw X/Y/Z every 0.3 s. One axis shows abo
 | `NO I2C accelerometer found` | Check SDA/SCL are on A4/A5 (not swapped), power, solder joints |
 | Found device but all zeros | Chip asleep or bad connection; power-cycle |
 
-All four sensors tested.
+## Test 05: LEDs (`test/05_leds/05_leds.ino`)
+Wiring: red LED on D8, green LED on D9. Long leg (+) through a 220-330 ohm resistor to the pin, short leg (-) to GND.
+
+Expected: red 1.5 s, green 1.5 s, both 1.5 s, off, then they alternate forever.
+
+| What you see | Meaning |
+|---|---|
+| Both light in sequence | Working |
+| One never lights | LED reversed (flip it), wrong pin, or burnt out |
+| Very dim | Resistor too large |
