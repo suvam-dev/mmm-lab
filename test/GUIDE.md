@@ -56,5 +56,15 @@ Expected: `Raw: NNN` plus a bar, twice a second. Capacitive sensors read HIGH wh
 | Always 1023 | Signal wire disconnected or no power |
 | Wandering/noisy values with no change in water | Floating pin or bad connection |
 
-## Next tests (to be added)
-04 Accelerometer.
+## Test 04: Accelerometer MPU6050 (`test/04_accelerometer/04_accelerometer.ino`)
+Wiring: VCC -> 5V, GND -> GND, SDA -> A4, SCL -> A5 (I2C pins on the Uno are fixed).
+
+Expected: `Found device at 0x68`, then raw X/Y/Z every 0.3 s. One axis shows about +/-16000 (gravity) when still; values change when you tilt.
+
+| What you see | Meaning |
+|---|---|
+| Found 0x68 + changing values | Working |
+| `NO I2C accelerometer found` | Check SDA/SCL are on A4/A5 (not swapped), power, solder joints |
+| Found device but all zeros | Chip asleep or bad connection; power-cycle |
+
+All four sensors tested.
