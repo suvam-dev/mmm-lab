@@ -1,0 +1,37 @@
+# Sensor Test Guide (Arduino Uno)
+
+Test one sensor at a time. Disconnect the ESP32 and every other sensor first,
+so only the sensor under test is wired.
+
+## Setup (once)
+- Plug the Uno in by USB.
+- Arduino IDE: Tools > Board > Arduino Uno, Tools > Port > `/dev/cu.usbmodem...`
+- Open the sketch (File > Open), click Upload (->), then Tools > Serial Monitor at **9600 baud**.
+
+## Optional: command line
+```
+brew install arduino-cli
+arduino-cli core install arduino:avr
+arduino-cli board list                       # find your port
+arduino-cli compile --fqbn arduino:avr:uno test/01_buzzer
+arduino-cli upload  -p /dev/cu.usbmodemXXXX --fqbn arduino:avr:uno test/01_buzzer
+arduino-cli monitor -p /dev/cu.usbmodemXXXX -c baudrate=9600
+```
+
+## Test 01: Buzzer (`test/01_buzzer/01_buzzer.ino`)
+Wiring: (+) -> D7, (-) -> GND.
+
+Expected: 3 beeps, then a tone, then a short beep every second. Serial Monitor prints each step. Type `b` + Enter for an extra beep.
+
+| What you see | Meaning |
+|---|---|
+| Beeps during the 3 ON/OFF steps | Active buzzer, working |
+| Silent for ON/OFF but the 1000 Hz tone sounds | Passive buzzer, working (use `tone()`) |
+| Total silence | Check polarity (long leg = +), D7 pin, jumper wire, or the buzzer is dead |
+| Serial Monitor shows nothing | Wrong port or baud rate; board not uploading |
+| Upload fails | Unplug anything on pins D0/D1 (the ESP32 may be using TX/RX!) |
+
+Tip: since the ESP32 attempt broke things, check that nothing is still on D0/D1, 5V, or GND shorted, and that the ESP32 isn't feeding 3.3V/5V into the wrong pins.
+
+## Next tests (to be added)
+02 Ultrasonic, 03 Soil moisture, 04 Accelerometer.

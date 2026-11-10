@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Arduino build output
+build/
+*.hex
+*.elf
+*.bin
+*.eep
+*.map
+
+# Secrets (WiFi creds, API keys)
+.env
+secrets.h
+*.secret
+
+# Editors / IDE
+.vscode/
+.idea/
+*.swp
+
+# Claude Code local
+.claude/
