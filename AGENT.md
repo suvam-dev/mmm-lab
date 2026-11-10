@@ -24,3 +24,8 @@ Background: all worked, then an ESP32 WiFi attempt was added; afterwards only th
 - Add each new test to `test/GUIDE.md` with expected output and a failure table.
 - Avoid D0/D1 (serial/USB) for sensors.
 - Order: all four verified.
+
+## Dashboard (frontend/)
+- `main/landslide_node/` streams JSON lines (d, s, ax, ay, az, a) at 9600 baud and obeys `A`/`N`/`M`/`U` commands.
+- `frontend/` is plain HTML/CSS/JS. Run `cd frontend && python3 -m http.server 8080`, open http://localhost:8080 in Chrome (Web Serial). Demo mode needs no hardware.
+- Only one program can hold the serial port: close the Arduino Serial Monitor before connecting the dashboard.
