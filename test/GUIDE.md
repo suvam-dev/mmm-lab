@@ -44,5 +44,17 @@ Expected: `Distance: XX.X cm` five times a second. Move your hand closer and far
 | `NO ECHO (timeout)` always | Check 5V/GND; swap TRIG and ECHO wires (D4/D5); sensor may be dead |
 | Constant 0 or random jumps | Loose wire, or nothing solid in front of it |
 
+## Test 03: Soil moisture (`test/03_soil_moisture/03_soil_moisture.ino`)
+Wiring: VCC -> 5V, GND -> GND, AOUT -> A1.
+
+Expected: `Raw: NNN` plus a bar, twice a second. Capacitive sensors read HIGH when dry and LOWER when wet. Hold in air, then dip only the sensing part in water; the number should drop clearly.
+
+| What you see | Meaning |
+|---|---|
+| Stable number that drops in water | Working |
+| Always 0 | Signal wire not on A1, or GND/VCC missing |
+| Always 1023 | Signal wire disconnected or no power |
+| Wandering/noisy values with no change in water | Floating pin or bad connection |
+
 ## Next tests (to be added)
-03 Soil moisture, 04 Accelerometer.
+04 Accelerometer.
