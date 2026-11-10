@@ -33,5 +33,16 @@ Expected: 3 beeps, then a tone, then a short beep every second. Serial Monitor p
 
 Tip: since the ESP32 attempt broke things, check that nothing is still on D0/D1, 5V, or GND shorted, and that the ESP32 isn't feeding 3.3V/5V into the wrong pins.
 
+## Test 02: Ultrasonic (`test/02_ultrasonic/02_ultrasonic.ino`)
+Wiring: VCC -> 5V, GND -> GND, TRIG -> D4, ECHO -> D5.
+
+Expected: `Distance: XX.X cm` five times a second. Move your hand closer and farther and the number should change.
+
+| What you see | Meaning |
+|---|---|
+| Sensible, changing distance | Working |
+| `NO ECHO (timeout)` always | Check 5V/GND; swap TRIG and ECHO wires (D4/D5); sensor may be dead |
+| Constant 0 or random jumps | Loose wire, or nothing solid in front of it |
+
 ## Next tests (to be added)
-02 Ultrasonic, 03 Soil moisture, 04 Accelerometer.
+03 Soil moisture, 04 Accelerometer.
